@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template</title>
+  </head>
+  <body>
+    <script>
+      //1. Dado un nuumero n como entrada, el programa debe mostrar la serie de fibonacci de esos n
+      //nuumeros. (4 puntos)
+
+      const fibonacci = function (n) {
+        //lista para los resultados
+        let result = [0, 1];
+        //iteramos desde  2 hasta n con la formula de fibonacci
+        for (let i = 2; i < n; i++) {
+          result[i] = result[i - 2] + result[i - 1];
+        }
+
+        //retornamos la lista
+        return result;
+      };
+
+      //imprimimos la serie
+      console.log("serie de fibonacci: ");
+      console.log(fibonacci(4));
+
+      //2. Dado un numero n, el programa debe mostrar los factores o divisores de n. (4 puntos)
+
+      const divisores = function (n) {
+        let result = [];
+
+        for (let i = 1; i <= n; i++) {
+          if (n % i == 0) {
+            result.push(i);
+          }
+        }
+
+        result.sort((a, b) => a - b);
+        var set = new Set(result);
+        return set;
+      };
+
+      console.log("divisiores de un numero");
+      console.log(divisores(110));
+      console.log(divisores(10));
+      console.log(divisores(5));
+      console.log(divisores(27));
+      console.log(divisores(16));
+
+      //3. Dado un numero n, el programa debe mostrar si es primo o no. (4 puntos)
+
+      const es_primo = function (n) {
+        if (n === 1) {
+          return false;
+        } else if (n === 2) {
+          return true;
+        } else {
+          for (var i = 2; i < n; i++) {
+            if (n % i === 0) {
+              return false;
+            }
+          }
+          return true;
+        }
+      };
+      console.log("numero primo")
+      console.log(es_primo(37));
+
+      //4. Dado un numero n, el programa debe mostrar el factorial. Implemente la version iterativa y la
+      //recursiva. (5 puntos)
+      const factorial = function (n) {
+        if (n === 0) {
+          return 1;
+        }
+
+        let fact = 1;
+        for (i = 1; i <= n; i++) {
+          fact *= i;
+        }
+
+        return fact;
+      };
+
+      const factorialrecursivo = function (n) {
+        if (n === 0) {
+          return 1;
+        } else {
+          return n * factorialrecursivo(n - 1);
+        }
+      };
+
+      console.log("factoriales: ");
+      console.log(factorial(5));
+      console.log(factorial(7));
+
+      console.log(factorialrecursivo(7));
+    </script>
+  </body>
+</html>
